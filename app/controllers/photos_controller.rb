@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @photo = Photo.all
+    @photos = current_user.photos
   end
 
   def new
@@ -10,7 +10,8 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
+    # Specify that this new photo object will belong to the current user
+    @photo = current_user.photos.build(photo_params)
 
     if @photo.save
       redirect_to photos_path(@photo)
@@ -20,11 +21,12 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    @photo = Photo.find(params[:id])
+    # Specify that only photos that have a matching user_id can be edited by current user
+    @photo = current_user.photos.find(params[:id])
   end
 
   def update
-    @photo = Photo.find(params[:id])
+    @photo = current_user.photos.find(params[:id])
 
     if @photo.update_attributes(photo_params)
       redirect_to photos_path(@photo)
