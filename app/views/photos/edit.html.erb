@@ -1,12 +1,13 @@
-<%= image_tag @photo.filename %>
 
 <h1>Edit Photo</h1>
 
-<%= form_for @photo do |form| %>
-	<%= form.label :filename %>
-	<%= form.file_field :filename %><br />
-
-	<%= form.label :caption %>
-	<%= form.text_area :caption %><br />
-	<%= form.submit 'Save' %>
-<% end %>
+<div class="row">
+	<div class="col-md-5">
+		<%= simple_form_for @photo, html: { class: 'form-horizontal' } do |form| %>
+			<%= form.input :filename, label: 'Photo File' %>
+			<%= form.input :caption %>	
+			<%= form.submit 'Save File', class: 'btn btn-primary' %>
+		<% end %>
+	</div>
+	<div class="col-md-7"><%= image_tag @photo.filename %></div>	
+</div>
