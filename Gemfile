@@ -28,7 +28,7 @@ gem 'carrierwave'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'simple_form', '~> 3.1.0'
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :productiont
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
