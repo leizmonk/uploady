@@ -1,0 +1,10 @@
+<h1>Add a Comment</h1>
+
+<div class="row">
+	<div class="col-md-5">
+		<%= simple_form_for [@photo, @comment] do |form| %>
+			<%= form.input :body %>
+			<%= form.submit 'Comment', class: 'btn btn-primary' %>
+ 		<% end %>
+	</div>
+</div>

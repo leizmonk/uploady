@@ -1,0 +1,11 @@
+<%= image_tag @photo.filename, size: '300x300' %>
+
+<hr>
+
+<h1>Comments</h1>
+
+<% @comments.each do |comment| %>
+	<%= comment.body %><br />
+	Created by: <%= comment.user.email %> - Posted: <%= time_ago_in_words(comment.created_at) %> ago
+	<hr>
+<% end %>
